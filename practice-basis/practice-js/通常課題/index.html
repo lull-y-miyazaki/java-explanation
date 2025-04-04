@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>自己紹介</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>自己紹介</h1>
+
+    <p>
+      はじめまして！株式会社リスキルの田中です。<br>
+      この研修を通して大きく成長し自走するエンジニアとなれるように頑張ります！
+    </p>
+
+    <img id="image" class="profile" src="photo.jpg" alt="顔写真">
+
+    <table>
+      <tr>
+        <th id="click">ここをクリック</th>
+        <td id="message"></td>
+      </tr>
+      <tr>
+        <th>名前</th>
+        <td>田中リスキル太郎</td>
+      </tr>
+      <tr>
+        <th>会社名</th>
+        <td>株式会社リスキル</td>
+      </tr>
+      <tr>
+        <th>出身地</th>
+        <td>神奈川県</td>
+      </tr>
+      <tr>
+        <th>趣味・特技</th>
+        <td>
+          学生時代：ブレイクダンス、同人活動<br>
+          現在：子供（息子5歳、娘3歳）と遊ぶ
+        </td>
+      </tr>
+      <tr>
+        <th>プログラミング経験</th>
+        <td>
+          Java(Spring) / PHP(Laravel) / Ruby(Rails) / Python / VB.NET / HTML / CSS / JavaScript
+        </td>
+      </tr>
+      <tr>
+        <th>研修への意気込み</th>
+        <td>
+          最高の研修を提供することを約束します<br>
+          皆さん全力で自走するエンジニアを目指しましょう！
+        </td>
+      </tr>
+      <tr>
+        <td><button id="button">メッセージ表示</button></td>
+        <td><input id="input" type="text"></td>
+      </tr>
+    </table>
+    <a href="contact.html">お問い合わせ</a>
+
+    <script>
+      // 指定したメッセージを表示する関数
+      function showMessage(str) {
+        message.innerHTML = str; // 指定された文字列をmessage要素に挿入
+      }
+
+      // 指定した画像を表示する関数
+      function showImage(file) {
+        image.src = file; // 指定されたファイルをimage要素のsrc属性に設定
+      }
+
+      // HTML内の要素を取得
+      let click = document.querySelector("#click"); // idがclickの要素を取得
+      let message = document.querySelector("#message"); // idがmessageの要素を取得
+      let image = document.querySelector("#image"); // idがimageの要素を取得
+      let input = document.querySelector("#input"); // idがinputの要素を取得
+      let button = document.querySelector("#button"); // idがbuttonの要素を取得
+
+      // click要素がクリックされたら「よろしくお願いします」と表示
+      click.addEventListener("click", function () { showMessage("よろしくお願いします") });
+
+      // image要素がクリックされたらsmile.pngを表示
+      image.addEventListener("click", function () { showImage("smile.png") });
+
+      // button要素がクリックされたら、input要素の値を表示
+      button.addEventListener("click", function () { showMessage(input.value) });
+    </script>
+  </body>
+</html>

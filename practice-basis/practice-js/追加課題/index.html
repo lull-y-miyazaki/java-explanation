@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+<!-- ページの内容を中央に配置するためのdivを作成（中央配置のコンテナにはwrapという命名が使われる） -->
+<div id="wrap">
+	<p>ランダムで数字を表示します</p>
+	<!-- JavaScriptを使って、サイコロのような機能を実装します -->
+	<script type="text/javascript">	
+		// Math.random()で0から1の間の乱数を生成し、
+		// Math.floor()で小数点以下を切り捨て、
+		// 最後に+1することで1から6までの数字を作ります
+		// 生成した数字をページに表示します
+		document.write(rand);
+		// 生成した数字が3より大きい場合は「勝ち」、
+		// 3以下の場合は「負け」と表示します
+		if (rand > 3) {
+			document.write("<p>勝ち</p>");
+		} else {
+			document.write("<p>負け</p>");
+		}
+	</script>
+</div>
+</body>
+</html>
+
+<!-- document.とは、ページの内容を操作するためのオブジェクト -->
+<!-- そのdocumentオブジェクトのwriteメソッドは、ページに内容を書き込むためのメソッド -->
