@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <!-- #13 CSSは外部スタイルシート（style.css）を作成して利用する -->
+    <link href="style.css" rel="stylesheet">
+    <!-- #1 ページタイトルは「小テスト」とする -->
+    <title>小テスト</title>
+</head>
+<body>
+    <!-- #2 「メッセージを表示」と見出しをつける -->
+    <h1>メッセージを表示</h1>
+
+    <script>
+        // #5 1～5の整数が偶数か奇数であるかを出力する（表示さえできていれば可）
+        // #6 1～5の整数が偶数か奇数であるかを出力する（JavaScriptのfor文とif文を利用）
+        // 1から5までの数字を繰り返し処理で表示する
+        // i % 2 == 0 は、iを2で割った余りが0かどうかをチェック（偶数判定）
+        for (let i = 1; i <= 5; i++) {
+            if (i % 2 == 0) {
+                // 偶数だった場合の処理
+                document.write(i + "は偶数です<br>");
+            } else {
+                // 奇数だった場合の処理
+                document.write(i + "は奇数です<br>");
+            }
+        }
+    </script>
+
+    <br>
+    <!-- #7 表を利用し、1行目のセルは全て結合する -->
+    <!-- 3つのボタンとメッセージ表示用のテーブルを作成 -->
+    <table>
+        <tr>
+            <!-- #8 表の1行目の中には「何かボタンを押してください」と出力する -->
+            <!-- colspan="3"で3列分の幅を確保 -->
+            <td id="message" colspan="3">何かボタンを押して下さい</td>
+        </tr>
+        <tr>
+            <!-- #9 表の2行目の中にそれぞれボタンを配置する -->
+            <td>
+              <!-- #10 ボタンのサイズは高さ40px、幅100pxとする -->
+              <!-- #11 ボタンのサイズ（CSS）はclass属性を利用して適応させること -->
+              <!-- 各ボタンにidとclassを設定 -->
+              <button id="btn1" class="btn">朝</button>
+            </td>
+            <td>
+              <button id="btn2" class="btn">夜</button>
+            </td>
+            <td>
+              <button id="btn3" class="btn">計算</button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        // メッセージを表示する関数
+        // 引数messageで受け取った文字列を#message要素に表示
+        function setMessage(message) {
+            let label = document.querySelector("#message");
+            label.innerHTML = message;
+        }
+
+        // #16 「計算」ボタンを押すと1～100までの合計を表示する（表示さえできていれば可）
+        // #17 「計算」ボタンを押すと1～100までの合計を表示する（JavaScriptのfor文を利用）
+        // 1から100までの合計を計算する関数
+        function calc() {
+            let result = 0;
+            // 1から100まで繰り返し処理で足し算
+            for (let i = 1; i<= 100; i++) {
+                result += i;
+            }
+            // 計算結果を画面に表示
+            setMessage(result);
+        }
+
+        // #14 「朝」ボタンを押すと表の1行目に「おはよう」と表示する
+        // querySelectorでボタン要素を取得
+        let btn1 = document.querySelector("#btn1");
+        // クリック時に「おはよう」と表示
+        btn1.addEventListener("click", function() { setMessage("おはよう"); });
+        
+        // #15 「夜」ボタンを押すと表の1行目に「こんばんは」と表示する
+        let btn2 = document.querySelector("#btn2");
+        // クリック時に「こんばんは」と表示
+        btn2.addEventListener("click", function() { setMessage("こんばんは"); });
+        
+        let btn3 = document.querySelector("#btn3");
+        // クリック時に1から100までの合計を計算して表示
+        btn3.addEventListener("click", calc);
+    </script>
+</body>
+</html>

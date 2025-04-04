@@ -1,0 +1,27 @@
+/* #3 見出しの背景色：darkred (#8B0000) */
+/* #4 見出しのテキストの色：white (#FFFFFF) */
+/* 見出しのスタイリング */
+h1 {
+    background-color: darkred;
+    color: white;
+}
+
+/* #7 表を利用し、1行目のセルは全て結合する */
+/* #12 表のセルは1pxの実線とする */
+/* テーブルのスタイリング */
+table {
+    border-collapse: collapse;  /* セルの境界線を重ねて表示 */
+}
+td {
+    border: 1px solid;  /* 1pxの実線を設定 */
+    padding: 10px;  /* セル内の余白を設定して見やすく */
+    text-align: center;  /* テキストを中央揃え */
+}
+
+/* #10 ボタンのサイズは高さ40px、幅100pxとする */
+/* #11 ボタンのサイズ（CSS）はclass属性を利用して適応させること */
+/* ボタンのスタイリング */
+.btn {
+    width: 100px;
+    height: 40px;
+}
