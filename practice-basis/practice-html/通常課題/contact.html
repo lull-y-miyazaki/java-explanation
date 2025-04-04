@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>お問い合わせ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>お問い合わせ</h1>
+  <form action="index.html" method="get">
+    <table border="1">
+      <tr>
+        <th>名前</th>
+        <td><input type="text" name="name"></td>
+      </tr>
+      <tr>
+        <th>性別</th>
+        <td>
+          <input type="radio" name="gender" value="m">男性
+          <input type="radio" name="gender" value="f">女性
+          <input type="radio" name="gender" value="o">その他
+        </td>
+      </tr>
+      <tr>
+        <th>内容</th>
+        <td>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="送信"><br>
+  </form>
+  <br>
+  <a href="index.html">自己紹介ページへ戻る</a>
+</body>
+</html>
+
+<!-- ##### HTMLタグの説明 ##### -->
+<!-- doctype: HTML5の文書であることを宣言
+html: HTML文書のルート要素
+head: メタ情報を含む部分
+meta: 文字エンコーディングをUTF-8に設定
+title: ブラウザのタブに表示されるタイトル
+link: 外部CSSファイル（style.css）を読み込む
+body: ページの内容を表示する部分
+h1: ページの見出し（「お問い合わせ」）
+form: フォームの開始、送信先をindex.htmlに指定（GETメソッド）
+table: 入力フィールドを表形式で整理
+table > tr: テーブルの行
+table > th: 列の見出し（「名前」「性別」「内容」）
+table > td: 入力フィールドを配置するセル
+input[type="text"]: 名前入力用のテキストボックス
+input[type="radio"]: 性別選択のラジオボタン
+'textarea': ユーザーが自由にテキストを入力するエリア
+input[type="submit"]: 送信ボタン
+a: 「自己紹介ページへ戻る」リンク -->

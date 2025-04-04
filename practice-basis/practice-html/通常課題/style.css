@@ -1,0 +1,49 @@
+/* ページ全体のスタイル設定 */
+body {
+  background-color: floralwhite;
+  /* 背景色をフローラルホワイトに設定 */
+  text-align: center;
+  /* テキストを中央揃えにする */
+}
+
+/* 見出しのスタイル設定 */
+h1 {
+  font-size: 50pt;
+  /* フォントサイズを50ポイントに設定 */
+  background-color: darkred;
+  /* 背景色を暗い赤に設定 */
+  color: white;
+  /* 文字色を白に設定 */
+}
+
+/* 画像のスタイル設定 */
+.profile {
+  width: 200px;
+  /* 画像の幅を200ピクセルに設定 */
+}
+
+/* テーブル（表）のスタイル設定 */
+table {
+  margin: 10px auto;
+  /* 上下に10pxの余白を追加し、左右の中央揃えにする */
+}
+
+/* テーブルのヘッダー（th）のスタイル設定 */
+th {
+  background-color: lightblue;
+  /* 背景色をライトブルーに設定 */
+  padding: 5px;
+  /* セル内の余白を5ピクセルに設定 */
+  width: 100px;
+  /* 列の幅を100ピクセルに設定 */
+}
+
+/* テーブルのデータセル（td）のスタイル設定 */
+td {
+  background-color: gainsboro;
+  /* 背景色をグレイッシュな色（gainsboro）に設定 */
+  padding: 5px;
+  /* セル内の余白を5ピクセルに設定 */
+  width: 300px;
+  /* 列の幅を300ピクセルに設定 */
+}
