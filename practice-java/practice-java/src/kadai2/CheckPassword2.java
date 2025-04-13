@@ -24,7 +24,8 @@ public class CheckPassword2 {
 		String password = scan.next();
 
 		// 入力されたパスワードが"himitu"と一致しない限りループを続ける
-		// while文は、条件がtrueの間、繰り返し処理を行います
+		// while文は、条件がtrueの間、繰り返し処理を行う
+		// この!は否定演算子で、条件を反転させる
 		while (!password.equals("himitu")) {
 
 			// パスワードが間違っている場合、再入力を促すメッセージを表示
