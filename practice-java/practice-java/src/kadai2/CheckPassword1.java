@@ -40,6 +40,8 @@ public class CheckPassword1 {
 				System.out.println("ログインできました");
 				// パスワードが正しいのでループを抜ける
 				break;
+
+			// パスワードが間違っている場合の処理
 			} else {
 				// パスワードが間違っている場合、エラーメッセージを表示
 				System.out.println("不正解です");
