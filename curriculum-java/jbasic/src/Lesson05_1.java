@@ -14,13 +14,13 @@ public class Lesson05_1 {
 		System.out.print("三角形の底辺を入力してください：");
 
 		//int型の変数baseを定義
-		//ScannerクラスのnextInt()メソッドを使用して、整数値を取得
+		//ScannerクラスのnextInt()メソッドを使用して、整数値をキーボードから取得
 		int base = scan.nextInt();
 
 		System.out.print("三角形の高さを入力してください：");
 
 		//int型の変数heightを定義
-		//ScannerクラスのnextInt()メソッドを使用して、整数値を取得
+		//ScannerクラスのnextInt()メソッドを使用して、整数値をキーボードから取得
 		int height = scan.nextInt();
 
 		// 三角形の面積を計算する式
