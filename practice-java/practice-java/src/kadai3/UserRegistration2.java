@@ -93,6 +93,7 @@ public class UserRegistration2 {
 
 			System.out.println("年齢は0以上130以下で入力してください");
 
+			// エラーがある場合はtrueを返す
 			return true;
 		}
 
