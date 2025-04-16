@@ -39,7 +39,7 @@ public class UserAction2 {
 		// userオブジェクトのshowInfoメソッドを呼び出して、登録された情報を表示
 		user.showInfo();
 
-		// Scannerオブジェクトを閉じて、リソースを解放
+		// Scannerクラスの終了
 		scan.close();
 	}
 }
