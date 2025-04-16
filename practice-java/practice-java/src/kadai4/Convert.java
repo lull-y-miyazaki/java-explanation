@@ -13,8 +13,8 @@ public class Convert {
 
 		// 整数値を文字列に変換
 		// Integer.valueOf(value)で整数をIntegerオブジェクトに変換し、toString()メソッドで文字列に変換
+		// Integer は、int型（整数）をオブジェクトとして扱うためのクラス(p240にあるよ)
 		// toString()メソッドは、整数を文字列に変換するためのメソッド
-		// 例：123 → "123"
 		String str = Integer.valueOf(value).toString();
 
 		// 文字列に変換した値を文字列反転メソッドに渡します
