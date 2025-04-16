@@ -15,6 +15,7 @@ public class Convert {
 		// Integer.valueOf(value)で整数をIntegerオブジェクトに変換し、toString()メソッドで文字列に変換
 		// Integer は、int型（整数）をオブジェクトとして扱うためのクラス(p240にあるよ)
 		// toString()メソッドは、整数を文字列に変換するためのメソッド
+		// valueOf()はプリミティブ（基本型）→ ラッパークラスに変換するメソッド
 		String str = Integer.valueOf(value).toString();
 
 		// 文字列に変換した値を文字列反転メソッドに渡します
@@ -28,6 +29,7 @@ public class Convert {
 
 		// 小数点数を文字列に変換
 		// Double.valueOf(value)で小数点数をDoubleオブジェクトに変換し、toString()メソッドで文字列に変換
+		// Double は、double型（小数点数）をオブジェクトとして扱うためのクラス(p240にあるよ)
 		// toString()メソッドは、浮動小数点数を文字列に変換するためのメソッド
 		// 例：12.34 → "12.34"
 		String str = Double.valueOf(value).toString();
@@ -64,5 +66,7 @@ public class Convert {
 // 3. reverseメソッドは、引数として渡された値を反転し、画面に表示する
 // 4. StringBuilderは、文字列を操作するための便利なクラスで、reverse()メソッドを使用して文字列を反転できる
 // 5. StringBuilderは、文字列を効率よく連結・変更するためのクラス
+
 // ただし、StringBuilder自体はString型とは違うため、画面に表示したり、他のメソッドに渡したりするには
 //「String型」に変換する必要がある。そのためtoString()メソッドを使って、StringBuilderの内容を普通のStringに変換している
+// valueOf()は、基本型の数値を、対応するラッパークラスのオブジェクトに変換するメソッド
