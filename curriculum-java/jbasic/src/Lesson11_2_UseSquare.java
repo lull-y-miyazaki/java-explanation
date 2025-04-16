@@ -10,7 +10,6 @@ public class Lesson11_2_UseSquare {
 		Lesson11_1_Square s2 = new Lesson11_1_Square();
 
 		//Squareクラスで上記インスタンス（オブジェクト）の高さと幅を設定
-
 		//s1の高さ・幅を設定
 		s1.height = 15;
 		s1.width = 7;
