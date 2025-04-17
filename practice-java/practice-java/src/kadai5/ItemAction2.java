@@ -35,6 +35,7 @@ public class ItemAction2 {
 // 参考：
 
 /*別のやり方①
+// 分けて代入
 
 // まず配列を作成
 Item[] items = new Item[3];
@@ -46,6 +47,7 @@ items[2] = new Item("扇風機", 4000);
 */
 
 /*別のやり方②
+// ArrayListを使う方法
 
 import java.util.ArrayList;
 
