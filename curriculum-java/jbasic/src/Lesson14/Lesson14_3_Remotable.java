@@ -1,5 +1,5 @@
 /*
-問題３:
+Lesson14 問題３:
 *無線通信可能なインターフェース Remotable を作成してください。
 *メソッドは void upload() および void download() とします。
 */
