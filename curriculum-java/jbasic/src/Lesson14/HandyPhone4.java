@@ -1,3 +1,8 @@
+/*
+Lesson14 問題４で使用
+*/
+
+
 // Phone4クラスを継承したHandyPhone4クラス
 // extendsキーワードを使って親クラスを指定する
 public class HandyPhone4 extends Phone4 {

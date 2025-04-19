@@ -1,3 +1,7 @@
+/*
+Lesson14 問題４で使用
+*/
+
 public class Phone4 {
 
 	// 電話番号を保持するフィールド

@@ -1,3 +1,7 @@
+/*
+Lesson14 問題４で使用
+*/
+
 // interface修飾子を使ってインタフェースを定義する
 public interface Audio {
 
