@@ -47,7 +47,7 @@ public class Warrior extends Human {
 	public void attack() {
 		System.out.print("「" + type + "」は");
 
-		// super()は親クラスのコンストラクタを呼び出す
+		// super.attack()は親クラスのattack()メソッドを呼び出す
 		super.attack();
 	}
 }
