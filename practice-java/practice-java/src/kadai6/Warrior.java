@@ -38,7 +38,7 @@ public class Warrior extends Human {
 	public void info() {
 		System.out.print("種別：" + type + "　");
 
-		// super()は親クラスのコンストラクタを呼び出す
+		// super.info()は親クラスのinfo()メソッドを呼び出す
 		super.info();
 	}
 
