@@ -41,7 +41,7 @@ public class PlayGame {
 				show(party);
 
 			// 選択した操作が2の場合は攻撃する
-		} else if (operation == 2) {
+			} else if (operation == 2) {
 
 				// 攻撃するattackメソッドを呼び出す
 				// attackメソッドを呼び出す
