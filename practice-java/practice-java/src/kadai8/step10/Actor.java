@@ -71,6 +71,8 @@ public class Actor {
 
 	// ステータス表示
 	public void status() {
+
+		// thisは、現在のインスタンス自体を指す
 		System.out.println("　" + this);
 		System.out.println("　" + getHpBar());
 	}
