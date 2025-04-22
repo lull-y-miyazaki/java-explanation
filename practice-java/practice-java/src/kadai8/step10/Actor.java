@@ -73,6 +73,8 @@ public class Actor {
 	public void status() {
 
 		// thisは、現在のインスタンス自体を指す
+		// つまり、toStringメソッドを呼び出すことで、現在のインスタンスの情報を表示する
+		// 例）勇者(HP:100/100)のように表示される
 		System.out.println("　" + this);
 		System.out.println("　" + getHpBar());
 	}
