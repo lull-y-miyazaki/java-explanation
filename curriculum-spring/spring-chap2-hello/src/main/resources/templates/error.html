@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>エラーが発生しました</title>
+</head>
+<body>
+	
+	<h1>エラーが発生しました</h1>
+	    <p th:text="'エラーメッセージ: ' + ${error}"></p>
+	    <p th:text="'ステータスコード: ' + ${status}"></p>
+
+</body>
+</html>
