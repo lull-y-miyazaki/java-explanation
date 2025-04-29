@@ -57,7 +57,7 @@ public class ContactController {
 		}
 
 		// dueDateはLocalDate型で、日付を取得するためのクラス
-		// / LocalDate.now()は、現在の日付を取得するためのメソッド
+		// LocalDate.now()は、現在の日付を取得するためのメソッド
 		LocalDate today = LocalDate.now();
 
 		// compareToメソッドは、日付を比較するためのメソッド
