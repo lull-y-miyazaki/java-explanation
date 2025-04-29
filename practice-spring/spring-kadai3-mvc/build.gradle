@@ -23,6 +23,10 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// Step6の準備
+	// 便利なユーティリティ集。標準Javaで書くと面倒な処理を、1行で済ませられるライブラリ
+	// 「文字列操作」「日付操作」「オブジェクト操作」などを簡単にするためのクラスやメソッドがある
 	implementation 'org.apache.commons:commons-lang3'
 }
 

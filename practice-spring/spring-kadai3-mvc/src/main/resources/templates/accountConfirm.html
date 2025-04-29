@@ -1,3 +1,6 @@
+<!-- Step1：MVCモデルを利用し、会員登録画面と確認画面を作成しなさい -->
+<!-- Step5：確認画面に登録ボタンを配置し、登録完了画面に遷移できるようにしなさい -->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -13,6 +16,8 @@
 <table border="1">
 	<tr>
 		<th>名前</th>
+		<!-- th:textは、値を表示するための属性
+		account.nameは、Accountクラスのnameプロパティを参照 -->
 		<td th:text="${account.name}"></td>
 	</tr>
 	<tr>
@@ -26,6 +31,8 @@
 </table>
 <br>
 <form action="/account" method="post">
+	<!-- Step5 type="hidden"は、フォームデータを送信するための隠しフィールドを作成
+	th:valueは、値をControllerに渡すための属性 -->
 	<input type="hidden" name="name" th:value="${account.name}">
 	<input type="hidden" name="email" th:value="${account.email}">
 	<input type="hidden" name="password" th:value="${account.password}">

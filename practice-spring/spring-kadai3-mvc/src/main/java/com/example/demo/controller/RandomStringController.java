@@ -1,3 +1,8 @@
+/**
+ * Step6：ランダム文字列の生成する個数を画面から入力できるようにしなさい
+ * Step7：「英字を含める」チェックボックスを追加しなさい
+ */
+
 package com.example.demo.controller;
 
 import java.util.List;
@@ -14,10 +19,12 @@ import com.example.demo.service.RandomStringService;
 @Controller
 public class RandomStringController {
 
-	@Autowired // Springによるオブジェクトの管理（注入）
-	RandomStringService service; // ランダム文字列生成サービス
+	// @Autowiredアノテーションを使って、Springにオブジェクトを管理させる
+	// 便利になるんだなで大丈夫！気なるなら自分で調べてみて！って感じでOK
+	@Autowired
+	RandomStringService service;
 
-	// 初期表示
+	// ランダム文字列の生成画面を表示
 	@GetMapping("/random")
 	public String index() {
 		return "random";
@@ -33,9 +40,12 @@ public class RandomStringController {
 			Model model) {
 
 		// ランダム文字列のListを生成
+		// serviceクラスのgenerateメソッドを呼び出す
+		// 引数は、charLength, withNumber, withAlphabet, createCount
+		// 戻り値は複数あるのでList型で受取り、List型の変数listに格納
 		List<String> list = service.generate(charLength, withNumber, withAlphabet, createCount);
 
-		// 条件の引継ぎ
+		// Step8 条件の引継ぎ
 		model.addAttribute("charLength", charLength);
 		model.addAttribute("withNumber", withNumber);
 		model.addAttribute("withAlphabet", withAlphabet);

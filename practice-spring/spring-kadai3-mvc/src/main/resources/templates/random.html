@@ -1,3 +1,6 @@
+<!-- Step6：ランダム文字列の生成する個数を画面から入力できるようにしなさい -->
+<!-- Step8：作成するボタンをクリックしたとき、文字数のセレクトボックス、チェックボックス、生成個数のテキストボックスの情報を、ランダム文字列を生成した後も引き継ぎなさい -->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -9,12 +12,18 @@
 
 	<form action="/random" method="post">
 		<p>
+			<!-- selectは文字数を選択するためのセレクトボックス-->
 			<select name="charLength">
+				<!-- #numbers.sequenceは()の引数で指定すると、指定した範囲の数値を生成する-->
+				<!-- th:eachは繰り返し処理を行うための属性で、iはループのための変数-->
 				<option th:each="i : ${#numbers.sequence(5, 10)}" 
 						th:value="${i}" 
 						th:text="${i}+ '文字'"
 						th:selected="${i == charLength}"></option>
+						<!-- charLengthはControllerでデフォルト値(1)を設定しているので1の場合は1が選択されている状態になっていて、
+						選択後は選択したもので上書きされるので、引き継ぐことができる-->
 			</select>
+			<!-- Step8 th:checked&th:valueで引き継いだ条件の表示 -->
 			<input type="checkbox" name="withNumber" value="true" th:checked="${withNumber}">数字を含める
 			<input type="checkbox" name="withAlphabet" value="true" th:checked="${withAlphabet}">英字を含める<br>
 			<input type="number" name="createCount" th:value="${createCount}">個生成する
@@ -24,6 +33,7 @@
 		</p>
 	</form>
 	<hr>
+	<!-- ランダム文字列のListを表示するための繰り返し処理 -->
 	<p th:each="str:${randList}" th:text="${str}"></p>
 </body>
 </html>

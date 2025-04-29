@@ -1,3 +1,10 @@
+<!-- Step1：MVCモデルを利用し、会員登録画面と確認画面を作成しなさい -->
+<!-- Step2：入力値のチェック処理を入れてください -->
+<!-- Step3：入力エラー時は、エラーメッセージの表示とともにテキストボックスに「名前」を残るようにしなさい
+（テキストボックスの保持にAccountクラスを利用しないパターン）※addAttributeで可能 -->
+<!-- Step4：「名前」「メールアドレス」「パスワード」の入力エラー時は、エラーメッセージの表示とともにテキストボックスに情報が残るようにしなさい
+（テキストボックスの保持にAccountクラスを利用するパターン）※accountオブジェクトを作成後にreturnで可能 -->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -9,6 +16,9 @@
 <h1>会員登録</h1>
 
 <form action="/account/confirm" method="post">
+
+	<!-- th:ifは、条件に応じてHTML要素を表示するための属性
+	th:eachは、リストの要素を繰り返し処理するための属性で、th:textで内容を表示 -->
 	<ul th:if="${errorList}">
 		<li th:each="error:${errorList}" th:text="${error}"></li>
 	</ul>
@@ -16,6 +26,9 @@
 		<tr>
 			<th>名前</th>
 			<td>
+				<!-- Step3 th:value="${name}"のようにaddAttributeで可能 -->
+				<!-- Step4 th:valueでエラーの場合もaccountオブジェクトを作成後に
+				returnしているので値を保持させてられる -->
 				<input type="text" name="name" th:value="${account.name}">
 			</td>
 		</tr>
@@ -28,6 +41,7 @@
 		<tr>
 			<th>パスワード</th>
 			<td>
+				<!-- type="password"は、パスワード入力用のフィールドで、入力した文字が表示されない -->
 				<input type="password" name="password" th:value="${account.password}">
 			</td>
 		</tr>
