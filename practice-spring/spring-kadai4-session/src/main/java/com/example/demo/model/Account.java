@@ -1,3 +1,7 @@
+/**
+ * Step5：名前によるログイン・ログアウト処理を追加しなさい
+ */
+
 package com.example.demo.model;
 
 import org.springframework.stereotype.Component;

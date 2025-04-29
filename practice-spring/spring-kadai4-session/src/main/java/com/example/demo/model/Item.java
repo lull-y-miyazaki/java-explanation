@@ -1,9 +1,13 @@
+/**
+ * Step2：商品を1つだけ追加できるようにしてください
+ */
+
 package com.example.demo.model;
 
 public class Item {
+
 	// フィールド
 	private String name;
-
 	private Integer price;
 
 	// コンストラクタ
