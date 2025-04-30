@@ -20,8 +20,7 @@
 						th:value="${i}" 
 						th:text="${i}+ '文字'"
 						th:selected="${i == charLength}"></option>
-						<!-- charLengthはControllerでデフォルト値(1)を設定しているので1の場合は1が選択されている状態になっていて、
-						選択後は選択したもので上書きされるので、引き継ぐことができる-->
+						<!-- charLengthは、Controllerから渡された値で、選択された文字数を保持するための変数 -->
 			</select>
 			<!-- Step8 th:checked&th:valueで引き継いだ条件の表示 -->
 			<input type="checkbox" name="withNumber" value="true" th:checked="${withNumber}">数字を含める
