@@ -79,6 +79,9 @@ public class CartController {
 		// リストに商品を追加
 		items.add(new Item(name, price));
 
+		// これでもOK！上の2行をまとめて書いている
+		// cart.getItems().add(new Item(name, price));
+
 		return "cart";
 	}
 
