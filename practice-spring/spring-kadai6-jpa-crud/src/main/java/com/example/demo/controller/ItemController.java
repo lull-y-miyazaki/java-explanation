@@ -1,3 +1,11 @@
+/**
+ * Step1：商品一覧画面を作りなさい（復習）
+ * Step2：新規登録の処理を追加しなさい
+ * Step3：一覧画面に更新ボタンを追加し、更新画面の表示をしてください
+ * Step4：更新画面にて、情報を変更し更新ボタンをクリックしたとき、データベースの内容を更新し、最新の情報で一覧画面を表示しなさい
+ * Step5：削除機能を追加してください
+ */
+
 package com.example.demo.controller;
 
 //リストインターフェースをインポート
@@ -14,28 +22,34 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.entity.Item;
 import com.example.demo.repository.ItemRepository;
 
-@Controller //コントローラークラスであることを示すアノテーション
+// コントローラークラスであることを示すアノテーション
+@Controller
 public class ItemController {
-	@Autowired //ItemRepositoryをインスタンスかしてくれる（クラス内のNew演算子の記述不要、インスタンス化を一回で済ますことが可能）
+
+	// ItemRepositoryをインスタンスかしてくれる（クラス内のNew演算子の記述不要、インスタンス化を一回で済ますことが可能）
+	@Autowired
 	ItemRepository itemRepository;
 
-	//①商品一覧表示
-	@GetMapping("/items") //Getリクエストを処理する。引数はパス。
-	//コントローラーからビューにデータを渡すため、引数にModel追加。
-	public String index(Model model) {
-		//JpaRepositoryのfindAll()メソッドでitemsテーブルの全てのレコードを取得し、変数itemListに格納
+	// ①商品一覧表示
+	// Getリクエストを処理する。引数はパス。
+	@GetMapping("/items")
+	public String index(Model model) { // コントローラーからビューにデータを渡すため、引数にModel追加。
+
+		// JpaRepositoryのfindAll()メソッドでitemsテーブルの全てのレコードを取得し、変数itemListに格納
 		List<Item> itemList = itemRepository.findAll();
-		//ModelオブジェクトのaddAttributeメソッドでthymeleafにデーターを渡す
-		//itemsという名前で変数itemListの値をビューに渡せるようにする
+
+		// ModelオブジェクトのaddAttributeメソッドでthymeleafにデーターを渡す
+		// itemsという名前で変数itemListの値をビューに渡せるようにする
 		model.addAttribute("items", itemList);
 
-		//itemsという名前のビューを表示する
+		// itemsという名前のビューを表示する
 		return "items";
 	}
 
-	//②新規登録画面表示
+	// ②新規登録画面表示
 	@GetMapping("/items/add")
 	public String create() {
+
 		//addItemというビューを返す
 		return "addItem";
 	}
@@ -50,6 +64,7 @@ public class ItemController {
 
 		//Itemオブジェクトの生成
 		Item items = new Item(categoryId, name, price);
+
 		//itemsテーブルに追加
 		itemRepository.save(items);
 
@@ -60,12 +75,16 @@ public class ItemController {
 	//③更新画面
 	@GetMapping("/items/{id}/edit")
 	public String edit(
-			@PathVariable("id") Integer id, //パラメータを取得
+			//@PathVariableでURL のパスの一部からパスを取得(変更するレコードのidを取得)
+			@PathVariable("id") Integer id,
 			Model model) {
+
 		//itemsテーブルから引数のidと一致する値があるか検索し、get()で値を取得
 		Item item = itemRepository.findById(id).get();
+
 		//itemsという名前で変数itemの値をビューに渡せるようにする
 		model.addAttribute("items", item);
+
 		//editItemとういビューを表示する
 		return "editItem";
 	}
@@ -80,10 +99,13 @@ public class ItemController {
 			@RequestParam(name = "name") String name,
 			@RequestParam(name = "price") Integer price,
 			Model model) {
+
 		//Itemオブジェクトの生成し、引数の値でコンストラクタで初期化
 		Item items = new Item(id, categoryId, name, price);
+
 		//save()メソッドitemsテーブルに追加
 		itemRepository.save(items);
+
 		//商品一覧画面にリダイレクト
 		return "redirect:/items";
 	}
@@ -93,8 +115,10 @@ public class ItemController {
 	public String delete(
 			//@PathVariableでURL のパスの一部からパスを取得(変更するレコードのidを取得)
 			@PathVariable("id") Integer id) {
+
 		//deleteById()メソッドで指定のidのレコードを削除
 		itemRepository.deleteById(id);
+
 		//商品一覧画面にリダイレクト
 		return "redirect:/items";
 	}

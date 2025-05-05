@@ -1,5 +1,7 @@
--- テーブル生成のSOL
+-- Step0：（準備） プロジェクトを作成後、「application.properties」「schema.sql」「data.sql」を
+-- サンプルプロジェクトの「spring-chap7-jpa-crud」よりコピーしてきます。
 
+-- テーブル生成のSOL
 -- テーブル削除
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS items;

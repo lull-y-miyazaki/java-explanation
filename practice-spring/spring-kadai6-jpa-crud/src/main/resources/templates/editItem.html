@@ -1,3 +1,8 @@
+<!--
+** Step3：一覧画面に更新ボタンを追加し、更新画面の表示をしてください
+** Step4：更新画面にて、情報を変更し更新ボタンをクリックしたとき、データベースの内容を更新し、最新の情報で一覧画面を表示しなさい
+-->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -6,6 +11,7 @@
 </head>
 <body>
 	<h1>商品更新</h1>
+	<!-- th:actionは、URLを生成するための属性で、@{/items/{id}/edit(id=${item.id})}のように、URLのパスに変数を埋め込める -->
 	<form th:each="item:${items}" th:action="@{/items/{id}/edit(id=${item.id})}" method="post">
 		<table border="1">
 			<tr>

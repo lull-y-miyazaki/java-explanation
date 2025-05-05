@@ -1,3 +1,10 @@
+<!--
+** Step1：商品一覧画面を作りなさい（復習）
+** Step2：新規登録の処理を追加しなさい
+** Step3：一覧画面に更新ボタンを追加し、更新画面の表示をしてください
+** Step5：削除機能を追加してください
+-->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -19,12 +26,15 @@
 			<td th:text="${item.name}"></td>
 			<td th:text="${item.price}"></td>
 			<td>
-			
+				<!-- +${item.id}は、item.idの値を文字列に変換してURLに埋め込む -->
 				<form th:action="'/items/'+${item.id}+'/edit'" method="get">
+				<!-- form th:action="@{/items/{id}/edit(id=${item.id})}" method="get"でもOK -->
+
 					<input type="submit" value="更新">
 				</form>
 			</td>
 			<td>
+
 				<form th:action="@{/items/{id}/delete(id=${item.id})}" method="post">
 					<input type="submit" value="削除">
 				</form>
@@ -33,5 +43,20 @@
 	</table>
 	<a href="items/add">新規登録画面</a>
 </body>
-</html>	
+</html>
 
+<!--
+
+補足：
+URLの組み立て方の違い
+
+<form th:action="'/items/'+${item.id}+'/edit'" method="get">
+→ 文字列連結でURLを組み立てる書き方
+※ 初学者でも分かりやすいが、保守性が低い
+
+<form th:action="@{/items/{id}/delete(id=${item.id})}" method="post">
+→ Thymeleafの構文に従ったテンプレート式
+※ @{} 構文を使う方が、Spring Boot とThymeleafの連携において 安全で保守性が高い
+(実務でもよく使う、Thymeleaf推奨の書き方)
+
+-->

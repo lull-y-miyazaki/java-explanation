@@ -1,3 +1,7 @@
+/**
+ * Step1：商品一覧画面を作りなさい（復習）
+ */
+
 package com.example.demo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;

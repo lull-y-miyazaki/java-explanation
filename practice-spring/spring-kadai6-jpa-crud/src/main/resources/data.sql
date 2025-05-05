@@ -1,3 +1,6 @@
+-- Step0：（準備） プロジェクトを作成後、「application.properties」「schema.sql」「data.sql」を
+-- サンプルプロジェクトの「spring-chap7-jpa-crud」よりコピーしてきます。
+
 -- カテゴリーテーブルデータ
 INSERT INTO categories(name) VALUES('本');
 INSERT INTO categories(name) VALUES('DVD');
