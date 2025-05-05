@@ -1,18 +1,21 @@
+<!-- Step1：管理者用商品一覧画面を追加しなさい -->
+<!-- Step2：商品管理機能（新規登録、更新、削除）を追加してください -->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>商品一覧</title>
+	<meta charset="UTF-8">
+	<title>商品一覧</title>
 </head>
+
 <body>
 	<h1>商品一覧</h1>
-	
+
 	<a href="/admin/items">全商品</a>
-	<a th:each="category:${categories}"
-	   th:href="'/admin/items?categoryId='+${category.id}" 
-	   th:text="${category.name}"
-	   style="margin-right: 5px;"></a>
-	
+	<a th:each="category:${categories}" th:href="'/admin/items?categoryId='+${category.id}" th:text="${category.name}"
+		style="margin-right: 5px;"></a>
+
 	<table border="1">
 		<tr>
 			<th>商品ID</th>
@@ -37,9 +40,10 @@
 			</td>
 		</tr>
 	</table>
-	
+
 	<a href="/admin/items/add">新規商品登録</a><br>
 	<a href="/admin/categories">カテゴリー管理</a><br>
 	<a href="/admin/customers">顧客管理</a><br>
 </body>
+
 </html>

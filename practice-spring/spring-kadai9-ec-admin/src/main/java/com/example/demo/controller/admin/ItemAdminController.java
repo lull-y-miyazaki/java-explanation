@@ -1,3 +1,6 @@
+/** Step1：管理者用商品一覧画面を追加しなさい */
+/** Step2：商品管理機能（新規登録、更新、削除）を追加してください */
+
 package com.example.demo.controller.admin;
 
 import java.util.List;
@@ -26,6 +29,7 @@ public class ItemAdminController {
 	@Autowired
 	CategoryRepository categoryRepository;
 
+	/** Step1：管理者用商品一覧画面を追加しなさい */
 	// 商品一覧表示
 	@GetMapping
 	public String index(
@@ -46,6 +50,9 @@ public class ItemAdminController {
 		}
 		model.addAttribute("items", itemList);
 
+		/** templetesフォルダに階層フォルダを作った場合、
+		 * Controllerで指定するView名（Thymeleafファイル名）は「フォルダ名/View名」とします。
+		 * （/の前にフォルダ名をつける） */
 		return "admin/items";
 	}
 
@@ -60,6 +67,7 @@ public class ItemAdminController {
 		return "admin/addItem";
 	}
 
+	/** Step2：商品管理機能（新規登録、更新、削除）を追加してください */
 	// 新規登録処理
 	@PostMapping("/add")
 	public String store(
@@ -102,7 +110,7 @@ public class ItemAdminController {
 
 		// itemsテーブルをID（主キー）で検索
 		Item item = itemRepository.findById(id).get();
-		
+
 		// セッターを利用して、itemオブジェクトのフィールドを書き換える
 		item.setCategoryId(categoryId);
 		item.setName(name);
