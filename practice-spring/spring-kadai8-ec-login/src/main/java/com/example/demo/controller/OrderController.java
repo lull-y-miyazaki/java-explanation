@@ -1,3 +1,5 @@
+/** Step5：カート画面から「注文する」ボタンを押したとき、ログインしているアカウント（顧客）情報が出力されるようにしなさい */
+
 package com.example.demo.controller;
 
 import java.time.LocalDate;
@@ -42,7 +44,8 @@ public class OrderController {
 	@GetMapping("/order")
 	public String index(Model model) {
 
-		// ログインしている顧客IDで顧客テーブルを検索		
+		/** Step5：カート画面から「注文する」ボタンを押したとき、ログインしているアカウント（顧客）情報が出力されるようにしなさい */
+		// ログインしている顧客IDで顧客テーブルを検索
 		Customer customer = customerRepository.findById(account.getId()).get();
 		model.addAttribute("customer", customer);
 
@@ -77,6 +80,7 @@ public class OrderController {
 		// 2. 注文情報をDBに格納する
 		Order order = new Order(
 				account.getId(),
+				// LocalDate.now()は現在の日付を取得するメソッド
 				LocalDate.now(),
 				cart.getTotalPrice());
 		orderRepository.save(order);
@@ -91,6 +95,8 @@ public class OrderController {
 							item.getId(),
 							item.getQuantity()));
 		}
+
+		// saveAllメソッドを使用して、リスト内のすべてのOrderDetailを一度に保存
 		orderDetailRepository.saveAll(orderDetails);
 
 		// セッションスコープのカート情報をクリアする

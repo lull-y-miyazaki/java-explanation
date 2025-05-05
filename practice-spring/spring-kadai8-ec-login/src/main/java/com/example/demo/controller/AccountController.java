@@ -1,3 +1,12 @@
+/** Step1：会員登録画面を追加してください */
+/** Step2：会員登録処理を追加してください */
+/** Step3：会員登録時に以下の入力チェックを行ってください
+ * エラーの場合、直前に入力されたテキストボックスの情報も保持されるパスワード欄のみは内容が保持されないようにする */
+/** Step4：ログイン機能を追加してください
+ * メールアドレスとパスワードが一致した場合はセッションスコープのaccountオブジェクトに「顧客IDと名前」を保持して、商品一覧画面にリダイレクトする
+ * メールアドレスとパスワードが一致しなかった場合は、「メールアドレスとパスワードが一致しませんでした」のメッセージをログイン画面に出力する */
+
+
 package com.example.demo.controller;
 
 import java.util.ArrayList;
@@ -43,6 +52,7 @@ public class AccountController {
 		return "login";
 	}
 
+	/** Step4：ログイン機能を追加してください */
 	// ログインを実行
 	@PostMapping("/login")
 	public String login(
@@ -61,6 +71,10 @@ public class AccountController {
 			model.addAttribute("message", "メールアドレスとパスワードが一致しませんでした");
 			return "login";
 		}
+
+		// 存在した場合
+		// get(0)で最初の要素を取得
+		// 1件しか取得しないので、最初の要素を取得する
 		Customer customer = customerList.get(0);
 
 		// セッション管理されたアカウント情報にIDと名前をセット
@@ -71,12 +85,15 @@ public class AccountController {
 		return "redirect:/items";
 	}
 
+	/** Step1：会員登録画面を追加してください */
 	// 会員登録画面の表示
 	@GetMapping("/account")
 	public String create() {
 		return "accountForm";
 	}
 
+	/** Step2：会員登録処理を追加してください */
+	/** Step3：会員登録時に以下の入力チェックを行ってください */
 	// 会員登録実行
 	@PostMapping("/account")
 	public String store(
@@ -127,3 +144,20 @@ public class AccountController {
 		return "redirect:/";
 	}
 }
+
+/**
+
+* 補足：
+
+ * return "accountForm"
+→ 今いるControllerのメソッド内で 直接テンプレート名を返す
+→ URLは変わらないので、Controllerのメソッドは通らない
+※ オブジェクト渡しが必要な場合は、直接 return の前に model に詰める必要がある
+
+ * return "redirect:/account"
+→ クライアント（ブラウザ）に、もう一度アクセスし直しなおさせる
+→ URLが変わるので、Controllerの別メソッドを通る
+→ （@GetMapping("/account") などに再度アクセスされる）
+※ リダイレクト先の Controller メソッドで再取得・再生成が必要（または RedirectAttributes を使う）
+
+ */

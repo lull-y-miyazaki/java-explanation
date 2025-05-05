@@ -1,3 +1,7 @@
+<!-- Step1：会員登録画面を追加してください -->
+<!-- Step2：会員登録処理を追加してください -->
+<!-- Step3：会員登録時に以下の入力チェックを行ってください -->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -12,11 +16,11 @@
 	<main>
 		<h3>お客様情報</h3>
 		<form action="/account" method="post">
-			
+
 			<ul th:if="${errorList}" class="error">
 				<li th:each="error:${errorList}" th:text="${error}"></li>
 			</ul>
-			
+
 			<table border="1">
 				<tr>
 					<th>お名前</th>

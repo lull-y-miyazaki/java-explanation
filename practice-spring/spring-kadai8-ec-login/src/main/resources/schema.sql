@@ -1,3 +1,5 @@
+-- Step0：（準備）ショッピングサイトのサンプルプログラムのファイルを課題用にコピーし、起動できることを確認してください
+
 -- 各種テーブル削除
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS items;
@@ -36,7 +38,6 @@ CREATE TABLE orders
    customer_id INTEGER,
    ordered_on DATE,
    total_price INTEGER
-   
 );
 -- 注文明細テーブル
 CREATE TABLE order_details
