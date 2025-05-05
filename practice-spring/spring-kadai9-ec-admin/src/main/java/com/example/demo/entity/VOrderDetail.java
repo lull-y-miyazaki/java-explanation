@@ -1,3 +1,5 @@
+/** Step6：テーブルを結合し以下の画面を実現しなさい */
+
 package com.example.demo.entity;
 
 import jakarta.persistence.Column;
