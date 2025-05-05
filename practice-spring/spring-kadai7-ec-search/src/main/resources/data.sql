@@ -1,3 +1,5 @@
+-- Step0：（準備）ショッピングサイトのサンプルプログラムのファイルを課題用にコピーし、起動できることを確認してください
+
 INSERT INTO categories(name) VALUES('本');
 INSERT INTO categories(name) VALUES('DVD');
 INSERT INTO categories(name) VALUES('ゲーム');

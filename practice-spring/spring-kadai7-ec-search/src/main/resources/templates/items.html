@@ -9,6 +9,9 @@
 	<header th:replace="header"></header>
 	<hr>
 	<nav>
+		<!-- Step1：商品一覧画面にキーワード検索を追加してください -->
+		<!-- Step2：商品一覧画面に価格検索を追加してください -->
+		<!-- Step3：検索結果が出力されたとき、検索条件がテキストボックスに保持されるようにしてください -->
 		<form action="/items" method="get">
 			<input type="text" name="keyword" th:value="${keyword}" placeholder="商品名">
 			|
@@ -32,6 +35,7 @@
 			<tr th:each="item:${items}">
 				<td th:text="${item.id}"></td>
 				<td>
+					<!-- Step4：商品一覧の「商品名」をリンクにしなさい -->
 					<a th:href="'/items/'+${item.id}" th:text="${item.name}"></a>
 				</td>
 				<td th:text="${item.price}"></td>
