@@ -1,3 +1,5 @@
+/** Step3：カテゴリー管理機能（一覧、新規登録、更新、削除）を追加してください */
+
 package com.example.demo.controller.admin;
 
 import java.util.List;
