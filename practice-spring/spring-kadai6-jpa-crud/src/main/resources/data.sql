@@ -16,4 +16,9 @@ INSERT INTO items(category_id, name, price) VALUES(3, 'パズルゲーム', 780)
 INSERT INTO items(category_id, name, price) VALUES(3, 'Invader Fighter', 3400);
 INSERT INTO items(category_id, name, price) VALUES(3, 'Play the BascketBall', 2200);
 
+-- 補足：
+-- SERIAL PRIMARY KEYとは、整数型のカラムに自動的に連番を振るためのもの
+-- idカラムにSERIAL PRIMARY KEYを指定すると、INSERT文を実行するたびに自動的に1ずつ増加した値が振られる
+-- ただし、SERIALはPostgreSQL特有のデータ型であり、他のデータベースでは異なる方法で自動インクリメントを実装する必要があり
+-- MySQLではAUTO_INCREMENTを使用する
 
