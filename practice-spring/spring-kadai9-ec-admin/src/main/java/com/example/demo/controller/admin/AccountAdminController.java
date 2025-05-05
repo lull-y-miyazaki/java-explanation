@@ -1,3 +1,8 @@
+/** Step4：管理者ログイン機能を追加します。
+ * ユーザ名「admin」パスワード「himitu」に一致した場合、管理者用商品一覧画面を表示（リダイレクト）しなさい。
+ * また、ItemAdminControllerとCategoryAdminControllerへのアクセスは
+ * ログインしているユーザ名が「admin」の場合のみ許可するものとします。 */
+
 package com.example.demo.controller.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +44,7 @@ public class AccountAdminController {
 			Model model) {
 
 		// ログインチェック
+		// equalsメソッドを使用して、ユーザ名とパスワードが一致するか確認
 		if (!name.equals("admin") || !password.equals("himitu")) {
 			model.addAttribute("message", "ユーザ名とパスワードが一致しませんでした");
 			return "admin/login";
