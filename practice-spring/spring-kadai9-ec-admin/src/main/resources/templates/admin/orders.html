@@ -1,3 +1,6 @@
+<!-- Step5：顧客管理機能を追加します。顧客一覧画面と顧客詳細（注文情報）画面を作成しなさい。 -->
+<!-- Step6：テーブルを結合し以下の画面を実現しなさい -->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -22,7 +25,7 @@
 			<td th:text="${customer.email}"></td>
 		</tr>
 	</table>
-	
+
 	<h1>注文情報</h1>
 	<table border="1">
 		<tr>
@@ -36,7 +39,7 @@
 			<td th:text="${order.totalPrice}"></td>
 		</tr>
 	</table>
-	
+
 	<h1>注文明細</h1>
 	<table border="1">
 		<tr>
@@ -54,6 +57,6 @@
 			<td th:text="${orderDetail.price * orderDetail.quantity}"></td>
 		</tr>
 	</table>
-	
+
 </body>
 </html>

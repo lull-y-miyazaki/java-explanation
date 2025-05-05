@@ -1,3 +1,6 @@
+/** Step5：顧客管理機能を追加します。顧客一覧画面と顧客詳細（注文情報）画面を作成しなさい。 */
+/** Step6：テーブルを結合し以下の画面を実現しなさい */
+
 package com.example.demo.controller.admin;
 
 import java.util.List;
@@ -48,13 +51,20 @@ public class CustomerAdminController {
 		// 顧客情報
 		Customer customer = customerRepository.findById(id).get();
 		model.addAttribute("customer", customer);
+
 		// 注文情報（サンプルの場合は１顧客１注文）
 		List<Order> orderList = orderRepository.findByCustomerId(id);
+
+		// 注文情報が存在する場合
+		// 注文情報が存在しない場合は、空のリストをセット
+		// sizeメソッドはnullチェックを行うために使用
 		if (orderList != null && orderList.size() > 0) {
 			Order order = orderList.get(0);
 			model.addAttribute("order", order);
+
 			// 注文明細情報
 			List<VOrderDetail> orderDetailList = vOrderDetailRepository.findByOrderId(order.getId());
+
 			if (orderDetailList != null && orderDetailList.size() > 0) {
 				model.addAttribute("orderDetails", orderDetailList);
 			}
