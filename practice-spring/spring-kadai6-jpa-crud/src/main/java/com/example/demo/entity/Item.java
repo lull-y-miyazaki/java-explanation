@@ -7,24 +7,28 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "items") // 対応するテーブル名
+@Entity //Entityクラスであることを宣言
+@Table(name = "items") //itemsテーブルに対応していることを示す
 public class Item {
+	//フィールド
+	@Id //主キーであることを示す
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //自動で配番
+	private Integer id; //商品ID
 
-	// フィールド
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id; // 商品ID
+	@Column(name = "category_id") //テーブルのカラム名
+	private Integer categoryId;//カテゴリー名
 
-	@Column(name = "category_id")
-	private Integer categoryId; // カテゴリーID
+	private String name;// 商品名
+	private Integer price;//値段
 
-	private String name; // 商品名
+	//コンストラクタ
+	public Item() { //JpaRepositoryはからのコンストラクタが必要
+	}
 
-	private Integer price; // 価格
-
-	// コンストラクタ
-	public Item() {
+	public Item(Integer categoryId, String name, Integer price) {
+		this.categoryId = categoryId;
+		this.name = name;
+		this.price = price;
 	}
 
 	public Item(Integer id, Integer categoryId, String name, Integer price) {
@@ -34,13 +38,7 @@ public class Item {
 		this.price = price;
 	}
 
-	public Item(Integer categoryId, String name, Integer price) {
-		this.categoryId = categoryId;
-		this.name = name;
-		this.price = price;
-	}
-
-	// ゲッター
+	//	ゲッター
 	public Integer getId() {
 		return id;
 	}
@@ -57,6 +55,7 @@ public class Item {
 		return price;
 	}
 
+	//	セッター
 	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
@@ -68,5 +67,5 @@ public class Item {
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
-	
+
 }

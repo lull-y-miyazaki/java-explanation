@@ -2,19 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>商品更新</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<h1>商品更新</h1>
-
-	<form th:action="'/items/'+${item.id}+'/edit'" method="post">
+	<form th:each="item:${items}" th:action="@{/items/{id}/edit(id=${item.id})}" method="post">
 		<table border="1">
 			<tr>
 				<th>商品ID</th>
 				<td th:text="${item.id}"></td>
 			</tr>
 			<tr>
-				<th>カテゴリーID</th>
+				<th>商品カテゴリー</th>
 				<td>
 					<input type="text" name="categoryId" th:value="${item.categoryId}">
 				</td>

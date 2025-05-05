@@ -2,11 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>商品一覧</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<h1>商品一覧</h1>
-		
 	<table border="1">
 		<tr>
 			<th>商品ID</th>
@@ -20,18 +19,19 @@
 			<td th:text="${item.name}"></td>
 			<td th:text="${item.price}"></td>
 			<td>
+			
 				<form th:action="'/items/'+${item.id}+'/edit'" method="get">
 					<input type="submit" value="更新">
 				</form>
 			</td>
 			<td>
-				<form th:action="'/items/'+${item.id}+'/delete'" method="post">
+				<form th:action="@{/items/{id}/delete(id=${item.id})}" method="post">
 					<input type="submit" value="削除">
 				</form>
 			</td>
 		</tr>
 	</table>
-	
-	<a href="/items/add">新規登録</a>
+	<a href="items/add">新規登録画面</a>
 </body>
-</html>
+</html>	
+
