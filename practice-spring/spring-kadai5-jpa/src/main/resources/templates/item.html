@@ -1,0 +1,90 @@
+<!--
+Step1：商品一覧画面を作りなさい（復習）
+Step2：カテゴリーで絞り込みができるようにしてください（復習）
+Step3：価格（○○円以下）で検索できるようにしてください
+Step4：「安い順」リンクを追加し、クリックされたときに並び替えしなさい
+Step5：テキストボックスの検索条件（○○円以下）が、検索後も保持されるようにしてください
+Step6：商品名による部分一致検索ができるようにしてください
+※keywordパラメータを/itemsにGETで送信する（絞り込み、価格検索、並べ替えとの組み合わせは不要）
+Step7：「商品名」と「価格」の組み合わせ検索ができるようにしなさい
+Step8：「商品名」と「価格」の組み合わせ検索の結果を出した後に、安い順リンクを押すと順序が変化するようにしてください
+-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>商品一覧</title>
+</head>
+<body>
+
+	<h1>商品一覧</h1>
+
+	<!-- ▼ 商品名で検索するフォーム（GETリクエストで/itemsに送る） -->
+	<form action="/items" method="get">
+		商品名<input type="text" name="keyword" th:value="${keyword}"> <!-- 入力されたキーワードを保持 -->
+		<button>検索</button>
+	</form>
+
+	<!-- ▼ 最大価格で検索するフォーム -->
+	<form action="/items" method="get">
+		<input type="number" name="maxPrice" th:value="${maxPrice}">円以下 <!-- 入力された金額を保持 -->
+		<button>検索</button>
+	</form>
+
+	<!-- ▼ 全商品表示ボタン -->
+	<a href="/items">全商品</a>
+
+	<!-- ▼ カテゴリごとのリンクを動的に生成 -->
+	<!-- カテゴリ一覧をループ処理 -->
+	<a th:each="category : ${categories}" 
+	   th:href="@{/items(categoryId=${category.id})}"
+	   th:text="${category.name}" 
+	   style="margin-right: 5px;"></a>
+	
+	<!-- ▼ 価格が安い順に並べ替えるリンク -->
+	<a href="/items?sort=priceAsc">安い順</a>
+
+	<!-- ▼実践課題で使う複合検索フォーム -->
+	<!--
+		
+		<form action="/items" method="get">
+
+			商品名によるキーワード検索（部分一致
+			商品名 <input type="text" name="keyword" th:value="${keyword}"><br>
+
+			最大価格（例：1000円以下の商品を探す）
+			<input type="number" name="maxPrice" th:value="${maxPrice}">円以下
+
+			検索実行ボタン
+			<button>検索</button>
+
+		</form>
+
+		▼ 価格の安い順に並べるリンク
+		入力済みの keyword と maxPrice も引き継ぎながら sort='priceAsc' を追加
+		<a th:href="@{/items(keyword=${keyword}, maxPrice=${maxPrice}, sort='priceAsc')}">
+			安い順
+		</a>
+
+	<a th:href="@{/items(keyword=${keyword}, maxPrice=${maxPrice}, sort='priceAsc')}">安い順</a>
+	-->
+
+	<!-- ▼ 商品一覧の表 -->
+	<table border="1">
+		<tr>
+			<th>商品ID</th>
+			<th>商品名</th>
+			<th>値段</th>
+		</tr>
+
+		<!-- itemsの中身を1件ずつitemに取り出して表示 -->
+		<tr th:each="item : ${items}">
+			<td th:text="${item.id}"></td>    <!-- 商品ID -->
+			<td th:text="${item.name}"></td>  <!-- 商品名 -->
+			<td th:text="${item.price}"></td> <!-- 商品の価格 -->
+		</tr>
+	</table>
+
+</body>
+</html>

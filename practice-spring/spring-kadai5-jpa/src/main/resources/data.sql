@@ -1,3 +1,6 @@
+-- Step0：（準備）プロジェクトを作成後、「application.properties」「schema.sql」「data.sql」を
+-- サンプルプロジェクトの「spring-chap7-jpa」よりコピーしてきます
+
 -- カテゴリーテーブルデータ
 INSERT INTO categories(name) VALUES('本');
 INSERT INTO categories(name) VALUES('DVD');
@@ -11,4 +14,4 @@ INSERT INTO items(category_id, name, price) VALUES(2, 'The Racer', 1000);
 INSERT INTO items(category_id, name, price) VALUES(2, 'Space Wars 3', 1800);
 INSERT INTO items(category_id, name, price) VALUES(3, 'パズルゲーム', 780);
 INSERT INTO items(category_id, name, price) VALUES(3, 'Invader Fighter', 3400);
-INSERT INTO items(category_id, name, price) VALUES(3, 'Play the BasketBall', 2200);
+INSERT INTO items(category_id, name, price) VALUES(3, 'Play the BascketBall', 2200);
